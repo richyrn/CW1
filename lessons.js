@@ -5,7 +5,7 @@ let lessons = [
         "subject": "Board games",
         "price": 100.00,
         "location": "Copenhagen",
-        "description": "This lesson is for students who find interest in playing Chess and board games",
+        "description": "This lesson is for students who find interest in playing Chess and board games!",
         "availability": 5
     },
     {
