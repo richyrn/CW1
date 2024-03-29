@@ -50,7 +50,7 @@ let lessons = [
         "image": "images/cooding.jpg",
         "subject": "Computer-Science",
         "price": 300.00,
-        "location": "Lagos",
+        "location": "London",
         "description": "Come to expand your knowledge on the fundamentals of web and app Development",
         "availability": 5
     },
@@ -76,7 +76,7 @@ let lessons = [
         "id": 1009,
         "image": "images/football.jpg",
         "subject": "Football 101",
-        "price": 900.00,
+        "price": 800.00,
         "location": "Manchester",
         "description": "Come for the basic tutoring on how to play Football",
         "availability": 5
