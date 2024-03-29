@@ -15,7 +15,7 @@ let lessons = [
         "price": 700.00,
         "location": "Sydney",
         "description": "This is an extra lesson session for students who wish to improve their Tennis playing skills",
-        "availability": 5
+        "availability": 6
         
     },
     {
