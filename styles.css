@@ -88,7 +88,7 @@ body{
     transform: scale(1.5);
     padding: 10px;
     
-    accent-color: rgb(150, 107, 28);
+    accent-color: wheat;
 }
 .checkbox-text{
     display: inline;
