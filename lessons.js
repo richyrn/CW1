@@ -15,7 +15,7 @@ let lessons = [
         "price": 700.00,
         "location": "Sydney",
         "description": "This is an extra lesson session for students who wish to improve their Tennis playing skills",
-        "availability": 6
+        "availability": 5
         
     },
     {
@@ -50,7 +50,7 @@ let lessons = [
         "image": "images/cooding.jpg",
         "subject": "Computer-Science",
         "price": 300.00,
-        "location": "London",
+        "location": "Lagos",
         "description": "Come to expand your knowledge on the fundamentals of web and app Development",
         "availability": 5
     },
