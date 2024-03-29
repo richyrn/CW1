@@ -30,6 +30,7 @@
            </div>
         </div>
         
+        
        
         <div class="show-lesson" v-if="showLessons">
             <section class="sort-section">
@@ -179,7 +180,7 @@
                 },
                 addToCart(lesson){
                     
-                    this.cart.push(lesson.id);
+                    this.cart.push(lesson.id);                  //add to cart functionality//
                 },
                 removeFromCart(lessonID){
                     let index = this.cart.indexOf(lessonID);
@@ -208,7 +209,7 @@
                 },
                 checkOut(){
                     alert("Order Placed");
-                    this.showLessons = !this.showLessons;
+                    this.showLessons = !this.showLessons;    //Checkout Page//
                     this.cart = [];
                     this.customerName=''
                     this.customerNumber='';
