@@ -12,7 +12,9 @@
     <title>Richard's Classes</title>
 </head>
 <body>
+     <!-- Vue app container -->
     <div id="app">
+                <!-- Navigation bar -->
         <div class="navbar">
            <div class="logo">
             <h2>{{header}}</h2>
@@ -208,6 +210,7 @@
                     let index = this.cart.indexOf(lessonID);
                     // Check if the lesson ID exists in the cart
                     if (index !== -1) {
+                        // If it exists, remove the lesson ID from the cart array
                         this.cart.splice(index,1);
                     }
                 },
@@ -266,29 +269,40 @@
             computed:{
                 // this is the computed property object
                 cartItemCount(){
-                    return this.cart.length || "";
+                    return this.cart.length || ""; // Return the length of the cart array, or an empty string if the cart is empty
                 },
+                 // Computed property to create a set from the items in the cart
                 cartSet(){
                     return new Set(this.cart)
                 },
+                // Computed property to filter and search lessons based on a search term
                 searchLessons(){
                     return this.sortedLessons.filter((lesson) => {
+                        // Filter lessons based on whether the subject includes the search term, ignoring case
                         return lesson.subject.toLowerCase().includes(this.searchTerm.toLowerCase()) 
                     })
                 },
                 
             },
-            watch:{
+            watch:{ // Defining a watch object within a Vue.js component
+                // Watching for changes in sortBySubject property
                 sortBySubject(){
+                     // When sortBySubject changes, invoke the sortLessons method
                     this.sortLessons();
                 },
+                // Watching for changes in sortByPrice property
                 sortByPrice(){
+                     // When sortByPrice changes, invoke the sortLessons method
                     this.sortLessons();
                 },
+                // Watching for changes in sortByLocation property
                 sortByLocation(){
+                     // When sortByLocation changes, invoke the sortLessons method
                     this.sortLessons();
                 },
+                 // Watching for changes in sortByAvailability property
                 sortByAvailability(){
+                    // When sortByAvailability changes, invoke the sortLessons method
                     this.sortLessons();
                 },
                 ascending(){
