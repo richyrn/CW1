@@ -17,15 +17,23 @@
            <div class="logo">
             <h2>{{header}}</h2>
         </div>
+        <!-- This section defines a search bar within the navigation area -->
         <div class="nav-items">
+            <!-- Container for search functionality -->
             <div class="search">
-                <input type="text" placeholder="Search Lessons" class="search-bar" v-model="searchTerm">   
+                <!-- Input field for entering search terms -->
+                <input type="text" placeholder="Search Lessons" class="search-bar" v-model="searchTerm"> 
+                <!-- Button to initiate the search -->  
                 <button class="search-button">Search</button> 
            </div>
         </div>
+        <!-- Cart buttons section -->
         <div class="cart-buttons">
+            <!-- Show checkout button if cart has items -->
             <button class="show-checkout" v-on:click="showCheckout" v-if="cartItemCount >= 1">View Cart ({{cartItemCount}})</button>
+            <!-- Show checkout button if 'showLessons' flag is true -->
             <button class="show-checkout" v-else-if="showLessons">View Cart ({{cartItemCount}})</button>
+            <!-- Disable the button if neither condition is met -->
             <button class="show-checkout" v-else disabled>View Cart ({{cartItemCount}})</button>
            </div>
         </div>
@@ -80,8 +88,10 @@
                             <p>Location: {{lesson.location}}</p>
                             <div class="price-stock">
                                 <p> DHS {{lesson.price}}</p>
+                                <!--the v-show directive means the button will only show if it evaluates to true-->
                                 <span>Available Stock: {{lesson.availability - cartCount(lesson.id)}}</span>
                             </div>
+                            <!--this button will show for when the condition is true, if not, the disabled button shows-->
                             <button class="add-to-cart-button" v-on:click="addToCart(lesson)" :disabled="!canAddToCart(lesson)">Add to Cart</button>
                             <div class="message">
                                 <span v-if="lesson.availability === cartCount(lesson.id)">Lesson Out of Stock</span>
@@ -145,11 +155,12 @@
         let app = new Vue({
             el: '#app',
             data:{
+            // where you add key value pair
                 header: "Richard's Activity Room",
                 checkout: "Checkout Page",
                 lessons: lessons,
                 showLessons: true,
-                cart: [],
+                cart: [], // array to store items in shopping cart
                 sortedLessons: [...lessons],
                 sortByPrice: false,
                 sortBySubject: false,
@@ -163,24 +174,32 @@
 
             },
             methods: {
+                // Method to determine if a lesson can be added to the cart
                 canAddToCart(lesson){
+                     // Check if the lesson availability is greater than the number of instances of the lesson already in the cart
                     return lesson.availability > this.cartCount(lesson.id);
                 },
+                // Function to empty the cart. It does not take any parameters.
                 cartEmpty(){
                     
                 },
                 cartCount(id){
+                     // Initialize a variable to hold the count of occurrences.   
                     let count = 0;
+                    // Iterate through each item in the cart.
                     for (let i=0; i<this.cart.length; i++){
+                        // Check if the current item matches the specified ID.
                         if (this.cart[i] === id) {
+                            // If a match is found, increment the count.
                             count++;
                         }
                     }
+                    // Return the final count of occurrences of the specified item ID.
                     return count;
                 },
                 addToCart(lesson){
                     
-                    this.cart.push(lesson.id);                  //add to cart functionality//
+                    this.cart.push(lesson.id);                 
                 },
                 removeFromCart(lessonID){
                     let index = this.cart.indexOf(lessonID);
@@ -241,6 +260,7 @@
 
             },
             computed:{
+                // this is the computed property object
                 cartItemCount(){
                     return this.cart.length || "";
                 },
