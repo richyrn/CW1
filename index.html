@@ -197,12 +197,16 @@
                     // Return the final count of occurrences of the specified item ID.
                     return count;
                 },
+                // Function to add a lesson to the cart
                 addToCart(lesson){
-                    
+                    // Push the ID of the lesson to the cart array
                     this.cart.push(lesson.id);                 
                 },
+                // Function to remove a lesson from the cart
                 removeFromCart(lessonID){
+                    // Find the index of the lesson ID in the cart array
                     let index = this.cart.indexOf(lessonID);
+                    // Check if the lesson ID exists in the cart
                     if (index !== -1) {
                         this.cart.splice(index,1);
                     }
